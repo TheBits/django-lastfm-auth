@@ -14,7 +14,7 @@ from django.conf import settings
 from django.contrib.auth import authenticate
 from django.utils import simplejson
 
-from social_auth.backends import BaseAuth, SocialAuthBackend, USERNAME
+from social_auth.backends import BaseAuth, SocialAuthBackend
 
 
 LASTFM_API_SERVER = 'https://ws.audioscrobbler.com/2.0/'
@@ -40,7 +40,7 @@ class LastfmBackend(SocialAuthBackend):
             first_name = full_name
             last_name = ''
         data = {
-            USERNAME: response.get('name', ''),
+            'username': response.get('name', ''),
             'email': '',
             'fullname': full_name,
             'first_name': first_name,
